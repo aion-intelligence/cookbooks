@@ -14,3 +14,4 @@ def check_gpu():
         logger.info(f"   CUDA Version: {torch.version.cuda}")
     else:
         logger.warning("⚠️  No GPU detected - prediction will be slow")
+        os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
