@@ -1,0 +1,3 @@
+boltz[cpu]
+huggingface_hub[hf_transfer]
+chai-lab
