@@ -30,7 +30,6 @@ def run_boltz_prediction(
     cmd = [
         "boltz", "predict",
         str(input_path),
-        "--cache", str(models_dir),
         "--out_dir", str(output_dir),
         "--sampling_steps", str(sampling_steps),
         "--diffusion_samples", str(diffusion_samples),
