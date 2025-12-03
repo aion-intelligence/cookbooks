@@ -1,5 +1,8 @@
 import torch
 import logging
+import os
+
+os.environ["HF_TOKEN"] = "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"
 
 logger = logging.getLogger(__name__)
 
