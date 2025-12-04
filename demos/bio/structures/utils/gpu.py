@@ -4,6 +4,8 @@ import os
 
 logger = logging.getLogger(__name__)
 
+os.environ["DISABLE_PANDERA_IMPORT_WARNING"] = True
+
 def check_gpu():
     
     if torch.cuda.is_available():
