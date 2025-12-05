@@ -4,7 +4,7 @@ import os
 
 logger = logging.getLogger(__name__)
 
-os.environ["DISABLE_PANDERA_IMPORT_WARNING"] = True
+os.environ["DISABLE_PANDERA_IMPORT_WARNING"] = "1"
 
 def check_gpu():
     

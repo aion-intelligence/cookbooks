@@ -45,23 +45,31 @@ def run_prediction_and_viz(b, MODELS_DIR, OUTPUT_DIR, ui_components):
 
         results = extract_results(result_dir)
 
-
+        cif_file = None
         if results['structures']:
             cif_file = results['structures'][0]
-            with open(cif_file, 'r') as f:
-                cif_content = f.read()
 
-            show_molstar(cif_content, height=600, width=1000, title=f"Boltz-2 Prediction: {cif_file.name}")
-            print("\nControls: Click + drag to rotate, scroll to zoom, right-click for options\n")
-                
-        else:
-            logger.info("\nNo structures to visualize")
-
+        confidence_file = None
         if results['confidence']:
             confidence_file = results['confidence'][0]
-            with open(confidence_file, 'r') as f:
-                confidence_data = json.load(f)
 
-            plot_confidence_scores(confidence_data)
-        else:
-            logger.info("\nNo confidence data to visualize")
+        show_structure_and_confidence(cif_file, confidence_file)
+        
+
+def show_structure_and_confidence(cif_file: str | None, confidence_file: str | None):
+    if cif_file:
+        with open(cif_file, 'r') as f:
+            cif_content = f.read()
+
+        show_molstar(cif_content, height=600, width=1000, title=f"Structure Visualization: {cif_file}")
+        print("\nControls: Click + drag to rotate, scroll to zoom, right-click for options\n")
+    else:
+        logger.info("\nNo structure file provided for visualization")
+
+    if confidence_file:
+        with open(confidence_file, 'r') as f:
+            confidence_data = json.load(f)
+
+        plot_confidence_scores(confidence_data)
+    else:
+        logger.info("\nNo confidence file provided for visualization")
