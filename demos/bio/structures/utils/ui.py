@@ -1,5 +1,6 @@
 from IPython.display import HTML, display
 from ipywidgets import widgets
+import json
 
 from .input_sequences import INSULIN_YAML, ANTIBODY_ANTIGEN_YAML
 from .molstar import show_molstar
