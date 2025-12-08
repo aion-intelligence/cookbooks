@@ -50,8 +50,11 @@ def one_hot_encode(sequence):
     return kipoiseq.transforms.functional.one_hot_dna(sequence).astype(np.float32)
 
 
-def download_genome(fasta_path='/content/hg38.fa'):
+def download_genome(fasta_path='./runs/hg38.fa'):
     """Download hg38 reference genome if not present."""
+    # ensure parent directory exists
+    os.makedirs(os.path.dirname(fasta_path), exist_ok=True)
+    
     if not os.path.exists(fasta_path):
         print("Downloading hg38 reference genome (~1GB)...")
         os.system(f'wget -q -O - http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz | gunzip -c > {fasta_path}')
