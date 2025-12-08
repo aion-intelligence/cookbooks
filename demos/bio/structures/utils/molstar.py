@@ -27,7 +27,7 @@ def preload_molstar():
 
 
 
-def show_molstar(cif_content: str, height: int = 600, width: int = 1300, title: str = None) -> None:
+def show_molstar(cif_content: str, height: int = 600, width: int = 1000, title: str = None) -> None:
     """Display structure using Mol* viewer via iframe srcdoc"""
     
     

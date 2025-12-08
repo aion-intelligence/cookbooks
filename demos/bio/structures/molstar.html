@@ -13110,7 +13110,7 @@ div#notebook {
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">q</span> <span class="n">boltz</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>boltz
 </pre></div>
 </div>
 </div>
@@ -13118,7 +13118,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered" id="cell-id=a70e9daf">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
@@ -13150,6 +13150,26 @@ div#notebook {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
+<div class="output_html rendered_html output_subarea">
+<link href="https://cdn.jsdelivr.net/npm/@rcsb/rcsb-molstar/build/dist/viewer/rcsb-molstar.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@rcsb/rcsb-molstar/build/dist/viewer/rcsb-molstar.js"></script>
+<div id="molstar-preload-status" style="color: #888; font-size: 12px;">Loading Mol* library...</div>
+<script>
+        setTimeout(function() {
+            var status = document.getElementById('molstar-preload-status');
+            if (typeof rcsbMolstar !== 'undefined') {
+                status.innerHTML = '✓ Mol* viewer ready';
+                status.style.color = 'green';
+            } else {
+                status.innerHTML = '✗ Mol* failed to load - visualizations will not work';
+                status.style.color = 'red';
+            }
+        }, 2000);
+    </script>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>WARNING:utils.gpu:⚠️  No GPU detected - prediction will be slow
 </pre>
@@ -13167,7 +13187,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered" id="cell-id=d3993bac-79ff-42b3-b5d2-a7782f5480f2">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># create UI components and attach prediction to Run button</span>
@@ -13183,26 +13203,6 @@ div#notebook {
 
 <span class="n">ui_components</span><span class="p">[</span><span class="s2">"run_button"</span><span class="p">]</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">run_prediction_fn</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[6], line 4</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># create UI components and attach prediction to Run button</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> ui_components <span style="color: rgb(98,98,98)">=</span> create_input_ui()
-<span class="ansi-green-fg">----&gt; 4</span> prediction_widget <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">ui_components</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">"</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">prediction_output</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">"</span><span class="ansi-yellow-bg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> prediction_widget:
-<span class="ansi-green-intense-fg ansi-bold">      6</span>     show_structure_and_confidence(cif_file, confidence_file)
-
-<span class="ansi-red-fg">TypeError</span>: 'NoneType' object is not subscriptable</pre>
-</div>
 </div>
 </div>
 </div>
