@@ -5,7 +5,7 @@ import json
 from .input_sequences import INSULIN_YAML, ANTIBODY_ANTIGEN_YAML
 from .molstar import show_molstar
 
-def create_input_ui():
+def create_input_ui() -> dict[str, widgets.Widget]:
     
     custom_yaml_input = widgets.Textarea(
         value=INSULIN_YAML,
