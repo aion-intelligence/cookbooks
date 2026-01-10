@@ -170,7 +170,3 @@ from utils import (
 ### Anyscale
 - [Anyscale Documentation](https://docs.anyscale.com/)
 - [Anyscale Jobs](https://docs.anyscale.com/platform/jobs/)
-
-## License
-
-Apache 2.0

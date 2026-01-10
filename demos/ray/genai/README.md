@@ -162,7 +162,3 @@ from utils import (
 ### Anyscale
 - [Anyscale Documentation](https://docs.anyscale.com/)
 - [Anyscale RayLLM](https://www.anyscale.com/product/library/ray-llm)
-
-## License
-
-Apache 2.0
