@@ -1,0 +1,39 @@
+# BioNeMo Gateway Configuration
+# Unified API gateway for all BioNeMo models
+
+gateway:
+  host: 0.0.0.0
+  port: 8000
+
+# Cluster mode
+cluster:
+  mode: local  # "local" or "anyscale"
+
+# NIM backends
+nims:
+  esm2:
+    enabled: true
+    config: configs/esm2_config.yaml
+  evo2:
+    enabled: true
+    config: configs/evo2_config.yaml
+  geneformer:
+    enabled: true
+    config: configs/geneformer_config.yaml
+
+# Rate limiting (requests per minute)
+rate_limiting:
+  enabled: false
+  default_rpm: 60
+  burst_rpm: 100
+
+# Caching
+cache:
+  enabled: true
+  path: ~/.cache/nim
+  max_size_gb: 100
+
+# Logging
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

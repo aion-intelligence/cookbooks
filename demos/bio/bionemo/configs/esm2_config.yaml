@@ -1,0 +1,38 @@
+# ESM-2 NIM Configuration
+# Protein sequence embeddings and structure prediction
+
+nim:
+  name: esm2
+  container: nvcr.io/nim/nvidia/esm2:latest
+  host: localhost
+  port: 8001
+
+  # GPU requirements
+  gpu:
+    device: 0
+    memory_gb: 40  # A100-40GB minimum
+
+  # Health check
+  health_endpoint: /v1/health/ready
+  inference_endpoint: /v1/biology/nvidia/esm2
+
+# Ray Serve deployment settings
+serve:
+  autoscaling:
+    min_replicas: 1
+    max_replicas: 4
+    target_requests_per_replica: 10
+  health_check_period_s: 30
+  health_check_timeout_s: 10
+
+# Model capabilities
+capabilities:
+  - embeddings        # Protein sequence embeddings (1280-dim for ESM2-650M)
+  - structure         # Contact map prediction
+  - masked_prediction # Masked token prediction
+
+# Input constraints
+input:
+  max_sequence_length: 1024
+  valid_amino_acids: ACDEFGHIKLMNPQRSTVWY
+  batch_size: 32

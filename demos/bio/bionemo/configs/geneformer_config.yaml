@@ -1,0 +1,37 @@
+# Geneformer NIM Configuration
+# Single-cell gene expression analysis
+
+nim:
+  name: geneformer
+  container: nvcr.io/nim/nvidia/geneformer:latest
+  host: localhost
+  port: 8003
+
+  # GPU requirements
+  gpu:
+    device: 3
+    memory_gb: 16  # A100-40GB or smaller works
+
+  # Health check
+  health_endpoint: /v1/health/ready
+  inference_endpoint: /v1/biology/nvidia/geneformer
+
+# Ray Serve deployment settings
+serve:
+  autoscaling:
+    min_replicas: 1
+    max_replicas: 4
+    target_requests_per_replica: 10
+  health_check_period_s: 30
+  health_check_timeout_s: 10
+
+# Model capabilities
+capabilities:
+  - embeddings        # Cell embeddings from gene expression
+  - classify          # Cell type classification
+  - perturb           # In-silico perturbation analysis
+
+# Input constraints
+input:
+  max_genes: 2048
+  batch_size: 64

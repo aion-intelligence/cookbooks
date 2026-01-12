@@ -1,0 +1,25 @@
+# BioNeMo NIMs Integration Dependencies
+
+# Ray AI Libraries
+ray[serve,data]>=2.9.0
+
+# HTTP clients for NIM communication
+httpx>=0.25.0
+aiohttp>=3.9.0
+
+# Data handling
+numpy>=1.24.0
+pandas>=2.0.0
+pyarrow>=14.0.0
+
+# Configuration
+pyyaml>=6.0
+pydantic>=2.0.0
+
+# Jupyter notebooks
+jupyter>=1.0.0
+ipywidgets>=8.0.0
+
+# Testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0

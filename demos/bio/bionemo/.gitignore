@@ -1,0 +1,18 @@
+# Ignore NIM cache and outputs
+runs/
+.cache/
+*.cache
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+
+# Environment
+.env
+.env.local

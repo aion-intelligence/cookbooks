@@ -1,0 +1,38 @@
+# Evo2 NIM Configuration
+# DNA sequence generation and analysis
+
+nim:
+  name: evo2
+  container: nvcr.io/nim/arc/evo2:2
+  host: localhost
+  port: 8002
+
+  # GPU requirements (large model - needs 2 GPUs)
+  gpu:
+    devices: [1, 2]
+    memory_gb: 160  # 2x H100-80GB recommended
+
+  # Health check
+  health_endpoint: /v1/health/ready
+  inference_endpoint: /v1/biology/arc/evo2/generate
+
+# Ray Serve deployment settings
+serve:
+  autoscaling:
+    min_replicas: 1
+    max_replicas: 2  # Limited due to GPU requirements
+    target_requests_per_replica: 5
+  health_check_period_s: 60
+  health_check_timeout_s: 30
+
+# Model capabilities
+capabilities:
+  - generate          # DNA sequence generation
+  - embeddings        # Sequence embeddings
+  - zero_shot         # Zero-shot prediction
+
+# Input constraints
+input:
+  max_sequence_length: 8192
+  valid_nucleotides: ACGT
+  batch_size: 8
